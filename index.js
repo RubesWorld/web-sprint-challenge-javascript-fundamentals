@@ -114,7 +114,7 @@ const zooAnimals = [
   
   // 🦁🦁🦁 Step 3: Check your work by un-commenting the following calls to consume(): 🦁🦁🦁 
   // ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️
-  console.log(consume(2, 2, add)); // 4
+  // console.log(consume(2, 2, add)); // 4
   // console.log(consume(10, 16, multiply)); // 160
   // console.log(consume("Mary", "Poppins", greeting)); // Hello Mary Poppins, nice to meet you!
   
@@ -130,8 +130,10 @@ const zooAnimals = [
 /* 🐴🐴🐴 Step 1: Base Constructor 🐴🐴🐴
   Create a constructor function named CuboidMaker that accepts properties for length, width, and height which can be initialized as an object
 */
-function CuboidMaker(/*Your Code Here */){
-  /*Your Code Here */
+function CuboidMaker(param){
+  this.length = param.length;
+  this.width = param.width;
+  this.height = param.height;
 }
 
 
@@ -139,7 +141,9 @@ function CuboidMaker(/*Your Code Here */){
   Create a method using CuboidMaker's prototype that returns the volume of a given cuboid's length, width, and height
   Formula for cuboid volume: length * width * height   */
 
-
+CuboidMaker.prototype.volume = function(){
+  return this.length*this.width*this.height;
+}
 
 
 
@@ -148,7 +152,9 @@ function CuboidMaker(/*Your Code Here */){
   Formula for cuboid surface area of a cube: 
   2 * (length * width + length * height + width * height)  */
 
-
+  CuboidMaker.prototype.surfaceArea = function(){
+    return 2 * (this.length * this.width + this.length * this.height + this.width * this.height);
+  }
 
 
 
@@ -156,6 +162,7 @@ function CuboidMaker(/*Your Code Here */){
   Create a cuboid object that uses the new keyword to use our CuboidMaker constructor
   Add properties and values of length: 4, width: 5, and height: 5 to cuboid. */
 
+let cuboid = new CuboidMaker(4,5,5);
 
 
 
@@ -169,7 +176,17 @@ function CuboidMaker(/*Your Code Here */){
 // 🦄🦄🦄 Topic 4: Classes 🦄🦄🦄 //
 //🦄🦄🦄 1. Take your prototypes from above and refactor into class syntax. Please rename your class CuboidMakerTwo and your object cuboidTwo 🦄🦄🦄
 class CuboidMakerTwo{
-
+  constructor(param){
+  this.length = param.length;
+  this.width = param.width;
+  this.height = param.height;
+  }
+volume(){
+  return this.length*this.width*this.height;
+}
+surfaceArea(){
+  return 2 * (this.length * this.width + this.length * this.height + this.width * this.height)
+}
 }
 
 
