@@ -5,11 +5,11 @@ Study the code below and explain in your own words why nested function can acces
 const external = "I'm outside the function";
 
 function myFunction() {
-  console.log(external);
+  // console.log(external);
   const internal = "Hello! I'm inside myFunction!";
 
   function nestedFunction() {
-    console.log(internal);
+    // console.log(internal);
   }
   nestedFunction();
 }
@@ -79,8 +79,9 @@ const zooAnimals = [
   The zoos need to know their total animal population across the United States. Find the total population from all the zoos using the .reduce() method. Remember the reduce method takes two arguments: a callback (which itself takes two args), and an initial value for the count.
   */
   function USApop(array){
-    
-    let totalPop = array.reduce((acc,item)=>acc+item.population);
+    let pop = [];
+    array.forEach(item => pop.push(item.population))
+    let totalPop = pop.reduce((acc,item)=>acc+item);
     return totalPop;
   }
   
@@ -102,16 +103,18 @@ const zooAnimals = [
   function add(a,b){
     return a+b;
   }
+
 // 🦁🦁🦁 Create a function named multiply that returns the product of two numbers 🦁🦁🦁
   function multiply(a,b){
    return a*b;
   }
 
- // 🦁🦁🦁 Create a function named greeting that accepts a first and last name and returns "Hello first-name last-name, nice to meet you!" 🦁🦁🦁
+//  // 🦁🦁🦁 Create a function named greeting that accepts a first and last name and returns "Hello first-name last-name, nice to meet you!" 🦁🦁🦁
   function greeting(first,last){
    return `Hello ${first} ${last}, nice to meet you!`
   }
   
+
   // 🦁🦁🦁 Step 3: Check your work by un-commenting the following calls to consume(): 🦁🦁🦁 
   // ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️
   // console.log(consume(2, 2, add)); // 4
@@ -121,7 +124,12 @@ const zooAnimals = [
   
 // 🦁💪 Stretch: If you haven't already, convert your array method callbacks into arrow functions 🦁💪
  
-
+//add
+// const add = (a,b)=>a+b;
+//multiply
+// let multiply = (a,b)=> a*b;
+//greeting
+// let greeting = (first,last) => `Hello ${first} ${last}, nice to meet you!`
 
 
 
@@ -165,11 +173,12 @@ CuboidMaker.prototype.volume = function(){
 let cuboid = new CuboidMaker(4,5,5);
 
 
+// console.log(`CUBOID:`,cuboid);
 
 
 // 🐴🐴🐴 Test your volume and surfaceArea methods by uncommenting the logs below: 🐴🐴🐴
 // ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️
-// console.log(cuboid.volume()); // 100
+// console.log(`vol`,cuboid.volume()); // 100
 // console.log(cuboid.surfaceArea()); // 130
  
 
@@ -189,9 +198,15 @@ surfaceArea(){
 }
 }
 
+let cuboidTwo = new CuboidMakerTwo(5,4,4);
+
+// ASK CODY FOR WHY THIS IS Necessary 
+// cuboidTwo.length = 4;
+// cuboidTwo.width = 5;
+// cuboidTwo.height = 5;
 
 //🦄🦄🦄 Test your volume and surfaceArea methods by uncommenting the logs below: 🦄🦄🦄
-// console.log(cuboidTwo.volume()); // 100
+console.log(`VOL TEST:`,cuboidTwo.volume()); // 100
 // console.log(cuboidTwo.surfaceArea()); // 130
 
 
